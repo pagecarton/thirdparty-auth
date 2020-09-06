@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DOCUMENT_ELEMENT table_name="viewableobject" creation_time="1502333956" table_version="0.04" module_version="1.00" table_class="Ayoola_Object_Table_ViewableObject" creation_ip="2733855004">
+  <RECORDS autoId="2">
+    <TABLE_ROW ROW_ID="1">
+      <TABLE_FIELD FIELD_KEY="class_name"><![CDATA[ThirdPartyAuth_DoAuth]]></TABLE_FIELD>
+      <TABLE_FIELD FIELD_KEY="object_name"><![CDATA[thirdpartyauth_doauth]]></TABLE_FIELD>
+      <TABLE_FIELD FIELD_KEY="viewableobject_id"><![CDATA[714-0-1]]></TABLE_FIELD>
+      <TABLE_FIELD FIELD_KEY="view_parameters"><![CDATA[Login from another Website]]></TABLE_FIELD>
+      <TABLE_FIELD FIELD_KEY="module"><![CDATA[[&quot;Auth&quot;]]]></TABLE_FIELD>
+    </TABLE_ROW>
+  </RECORDS>
+  <TABLE_SETTINGS>
+    <DATA_TYPES class_name="TEXTAREA" object_name="TEXTAREA,UNIQUE" module="JSON" view_parameters="TEXTAREA" viewableobject_id="INPUTTEXT"/>
+    <FOREIGN_KEYS/>
+    <RELATIVES/>
+  </TABLE_SETTINGS>
+</DOCUMENT_ELEMENT>
