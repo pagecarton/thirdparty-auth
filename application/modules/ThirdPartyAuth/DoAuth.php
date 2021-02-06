@@ -35,7 +35,9 @@ class ThirdPartyAuth_DoAuth extends ThirdPartyAuth
 				$this->setViewContent( '<span class="boxednews badnews">No Auth Domain Set</span>', true );
 				$this->setViewContent( '<a href="javascript:;" onclick="ayoola.spotLight.showLinkInIFrame( \'' . Ayoola_Application::getUrlPrefix() . '/tools/classplayer/get/object_name/Application_Settings_Editor/settingsname_name/ThirdPartyAuth/\', \'' . __CLASS__ . '\' )" class="boxednews goodnews">Set Domain...</a>' );
 				return false;
-			}
+            }
+            //  double urlencode
+            //  needs this to preserve query strings in get array
             $goto = Ayoola_Page::getHomePageUrl() . Ayoola_Application::getRequestedUri() . '?' . http_build_query( $_GET );
 			$logInLink = $authHome . '/object/name/ThirdPartyAuth_GetAuth?goto=' . urlencode( urlencode( $goto ) );
 			if( empty( $_REQUEST['auth_key'] )  )
