@@ -24,8 +24,6 @@ class ThirdPartyAuth_DoAuth extends ThirdPartyAuth
     {
 		try
 		{ 
-		//	var_export( Ayoola_Application::getUserInfo() );     
-		//	exit();
 			if( $userInfo = Ayoola_Application::getUserInfo() )
 			{
 				$this->setViewContent( '<div class="boxednews goodnews">Already logged in as @' . $userInfo['username'] . '.</div>', true );   
@@ -39,7 +37,7 @@ class ThirdPartyAuth_DoAuth extends ThirdPartyAuth
 				return false;
 			}
             $goto = Ayoola_Page::getHomePageUrl() . Ayoola_Application::getRequestedUri() . '?' . http_build_query( $_GET );
-			$logInLink = $authHome . '/object/name/ThirdPartyAuth_GetAuth?goto=' . urlencode( $goto );
+			$logInLink = $authHome . '/object/name/ThirdPartyAuth_GetAuth?goto=' . urlencode( urlencode( $goto ) );
 			if( empty( $_REQUEST['auth_key'] )  )
 			{
 				header( 'Location: ' . $logInLink );
@@ -51,15 +49,8 @@ class ThirdPartyAuth_DoAuth extends ThirdPartyAuth
 				exit();			
 			}
 			$link = self::getAuthHomeLink() . '/object/name/ThirdPartyAuth_VerifyAuth?auth_key=' . $_REQUEST['auth_key'];
-		//	var_export( $link );  
 			$response = self::fetchLink( $link );  
-			
-		//	var_export( $link );
-		//	var_export( $response );
-		//	exit();
 			$response = json_decode( $response, true );
-		//	var_export( $response );
-		//	exit();
 			
 			if( isset( $response['username'], $response['email'] ) )
 			{
