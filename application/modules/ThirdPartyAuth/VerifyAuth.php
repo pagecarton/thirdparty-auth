@@ -28,10 +28,6 @@ class ThirdPartyAuth_VerifyAuth extends ThirdPartyAuth
 			{
 				return false;
 			}
-		//	if( $userInfo = Ayoola_Application::getUserInfo() )
-			{
-			//	return false;
-			}
 			$table = new ThirdPartyAuth_Table();
 			$authInfo = $userInfo =  array();
 			$authInfo['auth_key'] = $_REQUEST['auth_key'];
@@ -47,7 +43,7 @@ class ThirdPartyAuth_VerifyAuth extends ThirdPartyAuth
 				elseif( ( time() - $aInfoResult['c_time'] ) > 300 )
 				{
 					//	expired info
-				//	$table->delete( array( 'auth_key' => $aInfoResult['auth_key'] ) );
+				    //	$table->delete( array( 'auth_key' => $aInfoResult['auth_key'] ) );
 				}
 				elseif( $userInfo = Ayoola_Access::getAccessInformation( $aInfoResult['username'] ) )
 				{

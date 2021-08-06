@@ -7,7 +7,7 @@
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-class ThirdPartyAuth_Settings extends Application_Settings_Abstract
+class ThirdPartyAuth_Settings extends PageCarton_Settings
 {
 	
     /**
@@ -23,10 +23,13 @@ class ThirdPartyAuth_Settings extends Application_Settings_Abstract
 		$form->submitValue = $submitValue ;
 		$form->oneFieldSetAtATime = true;
 		$fieldset = new Ayoola_Form_Element;
-			//	self::v( $settings );
 
-	//	self::v( $_POST );
-	//	exit();  
+        if( ! empty( $settings['data'] ) )
+        {
+            $settings = $settings['data'];
+        }
+				//self::v( $settings );
+
 		//	auth levels
 		$fieldset->addElement( array( 'name' => 'auth_domain', 'label' => 'Auth Domain', 'value' => @$settings['auth_domain'], 'type' => 'InputText' ) );
 		$options = array( 
