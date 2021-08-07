@@ -33,7 +33,7 @@ class ThirdPartyAuth_GetUserHook extends ThirdPartyAuth
 		{ 
             switch( $method )
             {
-                case 'getUserInfo':
+                case 'getUserInfoByIdentifier':
 
                     foreach( $data as $key => $value )
                     {
