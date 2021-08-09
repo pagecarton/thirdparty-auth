@@ -41,10 +41,6 @@ class ThirdPartyAuth_GetUserHook extends ThirdPartyAuth
                         $query .= 'identifier[]=' . $key . '&value[]=' . $value . '&';
                         break;
                     }
-                    if( empty( $identifier ) || empty( $identifierValue ) )
-                    {
-                        return false;
-                    }
                     if( ! $authHome = self::getAuthHomeLink() )
                     {
                         return false;
