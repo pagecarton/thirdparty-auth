@@ -35,10 +35,10 @@ class ThirdPartyAuth_GetUserHook extends ThirdPartyAuth
             {
                 case 'getUserInfoByIdentifier':
 
+                    $query = '?';
                     foreach( $data as $key => $value )
                     {
-                        $identifier = $key;
-                        $identifierValue = $value;
+                        $query .= 'identifier[]=' . $key . '&value[]=' . $value . '&';
                         break;
                     }
                     if( empty( $identifier ) || empty( $identifierValue ) )
@@ -49,7 +49,7 @@ class ThirdPartyAuth_GetUserHook extends ThirdPartyAuth
                     {
                         return false;
                     }
-                    $link = self::getAuthHomeLink() . '/object/name/ThirdPartyAuth_GetUserInfo?identifier=' . $identifier . '&value=' . $identifierValue . '';
+                    $link = self::getAuthHomeLink() . '/object/name/ThirdPartyAuth_GetUserInfo' . $query;
                     $response = self::fetchLink( $link );  
                     $response = json_decode( $response, true );
                     if( ! empty( $response ) && is_array( $response ) )

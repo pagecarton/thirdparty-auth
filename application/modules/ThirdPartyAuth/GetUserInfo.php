@@ -29,8 +29,12 @@ class ThirdPartyAuth_GetUserInfo extends ThirdPartyAuth
 				return false;
 			}
             $access = new Ayoola_Access();
-            $identifier = array( $_GET['identifier'] => $_GET['value'] );
-            //var_export( $identifier );
+
+            $identifier = array();
+            foreach( $_GET['identifier'] as $key => $each )
+            {
+                $identifier[$each] = $_GET['value'][$key];
+            }
             $userInfo = $access->getUserInfoByIdentifier( $identifier );
 
             $jsonInfo = json_encode( $userInfo );
