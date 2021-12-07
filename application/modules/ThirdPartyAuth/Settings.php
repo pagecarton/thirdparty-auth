@@ -17,7 +17,7 @@ class ThirdPartyAuth_Settings extends PageCarton_Settings
      * param string Value of the Legend
      * param array Default Values
      */
-	public function createForm( $submitValue, $legend = null, Array $settings = null )
+	public function createForm( $submitValue = null, $legend = null, Array $settings = null )
     {
         $form = new Ayoola_Form( array( 'name' => $this->getObjectName() ) );
 		$form->submitValue = $submitValue ;
